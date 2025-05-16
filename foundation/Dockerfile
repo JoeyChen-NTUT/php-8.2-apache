@@ -15,18 +15,18 @@ RUN apt install fontconfig fonts-arphic-ukai
 RUN fc-cache -f -v
 
 #modify php.ini for env require
-#RUN cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
-#RUN sed -i -e 's/max_execution_time = 30/max_execution_time = 300/g' /usr/local/etc/php/php.ini
-#RUN sed -i -e 's/upload_max_filesize = 2M/upload_max_filesize = 256M/g' /usr/local/etc/php/php.ini
-#RUN sed -i -e 's/post_max_size = 8M/post_max_size = 256M/g' /usr/local/etc/php/php.ini
-#RUN sed -i -e 's/memory_limit = 128M/memory_limit = 1024M/g' /usr/local/etc/php/php.ini
-#RUN sed -i -e 's/;date.timezone =/date.timezone = Asia\/Taipei/g' /usr/local/etc/php/php.ini
-#RUN sed -i -e 's/max_file_uploads = 20/max_file_uploads = 300/g' /usr/local/etc/php/php.ini
-#RUN sed -i -e 's/max_input_time = 60/max_input_time = 120/g' /usr/local/etc/php/php.ini
-#RUN sed -i -e 's/;curl.cainfo=/curl.cainfo=\/etc\/ssl\/certs\/ca-certificates.crt/g' /usr/local/etc/php/php.ini
-#RUN sed -i -e 's/;openssl.cainfo=/openssl.cainfo=\/etc\/ssl\/certs\/ca-certificates.crt/g' /usr/local/etc/php/php.ini
+RUN cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
+RUN sed -i -e 's/max_execution_time = 30/max_execution_time = 300/g' /usr/local/etc/php/php.ini
+RUN sed -i -e 's/upload_max_filesize = 2M/upload_max_filesize = 256M/g' /usr/local/etc/php/php.ini
+RUN sed -i -e 's/post_max_size = 8M/post_max_size = 256M/g' /usr/local/etc/php/php.ini
+RUN sed -i -e 's/memory_limit = 128M/memory_limit = 1024M/g' /usr/local/etc/php/php.ini
+RUN sed -i -e 's/;date.timezone =/date.timezone = Asia\/Taipei/g' /usr/local/etc/php/php.ini
+RUN sed -i -e 's/max_file_uploads = 20/max_file_uploads = 300/g' /usr/local/etc/php/php.ini
+RUN sed -i -e 's/max_input_time = 60/max_input_time = 120/g' /usr/local/etc/php/php.ini
+RUN sed -i -e 's/;curl.cainfo=/curl.cainfo=\/etc\/ssl\/certs\/ca-certificates.crt/g' /usr/local/etc/php/php.ini
+RUN sed -i -e 's/;openssl.cainfo=/openssl.cainfo=\/etc\/ssl\/certs\/ca-certificates.crt/g' /usr/local/etc/php/php.ini
 #TEMP for Next Version
-#RUN sed -i -e 's/;max_input_vars = 1000/max_input_vars = 5000/g' /usr/local/etc/php/php.ini
+RUN sed -i -e 's/;max_input_vars = 1000/max_input_vars = 10000/g' /usr/local/etc/php/php.ini
     
 #install mysqli extensions
 RUN docker-php-ext-install pdo && docker-php-ext-enable pdo
